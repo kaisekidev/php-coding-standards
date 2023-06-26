@@ -43,7 +43,6 @@
                     compact => null,
                     delete => unset,
                     doubleval => floatval,
-                    extract => null,
                     fputs => fwrite,
                     ini_alter => ini_set,
                     is_double => is_float,
@@ -220,6 +219,7 @@
     <!-- Force camelCase variables -->
     <rule ref="Squiz.NamingConventions.ValidVariableName">
         <exclude name="Squiz.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+        <exclude name="Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps"/>
     </rule>
     <!-- Require PHP function calls in lowercase -->
     <rule ref="Squiz.PHP.LowercasePHPFunctions"/>
