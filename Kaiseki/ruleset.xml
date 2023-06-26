@@ -43,6 +43,7 @@
                     compact => null,
                     delete => unset,
                     doubleval => floatval,
+                    extract => null,
                     fputs => fwrite,
                     ini_alter => ini_set,
                     is_double => is_float,
