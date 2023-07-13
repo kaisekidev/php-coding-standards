@@ -1,6 +1,8 @@
 # Kaiseki PHP Coding Standard
 
-## Basic Usage:
+## PHPCS
+
+### Basic Usage:
 Add the following `phpcs.xml` file to your project's root:
 ```xml
 <?xml version="1.0"?>
@@ -12,8 +14,8 @@ Add the following `phpcs.xml` file to your project's root:
 </ruleset>
 ```
 
-## Excluding sniffs:
-### For certain files:
+### Excluding sniffs:
+#### For certain files:
 To exclude a sniff for a certain set of files, reference  the rule explicitly and add an exclude pattern:
 
 ```xml
@@ -34,7 +36,7 @@ public function foo($bar = 0): int
 ```
 
 More info on this can be found [here](https://github.com/slevomat/coding-standard#suppressing-sniffs-locally).
-### Exclude a whole sniff:
+#### Exclude a whole sniff:
 It is also possible to exclude a sniff completely:
 ```xml
 <?xml version="1.0"?>
@@ -46,4 +48,21 @@ It is also possible to exclude a sniff completely:
     <file>src</file>
     <file>tests</file>
 </ruleset>
+```
+
+## PHPCS
+Add the following `phpcs.xml` file to your project's root:
+
+```php
+<?php
+
+declare(strict_types=1);
+
+use Kaiseki\CodingStandard\PhpCsFixerConfig;
+use PhpCsFixer\Finder;
+
+$finder = Finder::create()
+    ->in(__DIR__ . '/src');
+
+return PhpCsFixerConfig::get($finder, []);
 ```
