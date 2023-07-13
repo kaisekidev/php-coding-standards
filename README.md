@@ -50,8 +50,8 @@ It is also possible to exclude a sniff completely:
 </ruleset>
 ```
 
-## PHPCS
-Add the following `phpcs.xml` file to your project's root:
+## PHP-CS-Fixer
+Add the following `.php-cs-fixer.php` file to your project's root:
 
 ```php
 <?php
@@ -65,4 +65,13 @@ $finder = Finder::create()
     ->in(__DIR__ . '/src');
 
 return PhpCsFixerConfig::get($finder, []);
+```
+
+Add this script to your `composer.json`: 
+```json
+{
+    "scripts": {
+        "php-cs-fixer": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php"
+    }
+}
 ```
