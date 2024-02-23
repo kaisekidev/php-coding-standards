@@ -2,7 +2,6 @@
     "name": "kaiseki/php-coding-standard",
     "description": "Kaiseki PHP Coding Standard",
     "license": "MIT",
-    "type": "phpcodesniffer-standard",
     "authors": [
         {
             "name": "Kaiseki",
@@ -25,10 +24,7 @@
     ],
     "require": {
         "php": "^8.1",
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.5 || ^0.6 || ^0.7 || ^1.0",
-        "slevomat/coding-standard": "^8.4",
-        "squizlabs/php_codesniffer": "^3.7.1",
-        "webimpress/coding-standard": "^1.1"
+        "friendsofphp/php-cs-fixer": "^3.32"
     },
     "autoload": {
         "psr-4": {
@@ -36,12 +32,9 @@
         }
     },
     "config": {
+        "sort-packages": true,
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
-        },
-        "sort-packages": true
-    },
-    "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.21"
+        }
     }
 }
