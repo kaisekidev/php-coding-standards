@@ -24,10 +24,7 @@ use Kaiseki\CodingStandard\PhpCsFixer\Config;
 use PhpCsFixer\Finder;
 
 $finder = Finder::create()
-    ->in(__DIR__ . '/src')
-    ->name('*.php')
-    ->ignoreDotFiles(true)
-    ->ignoreVCS(true);
+    ->in(__DIR__ . '/src');
 
 $rules = [
     // Your custom rules here
@@ -40,7 +37,8 @@ Add this script to your `composer.json`:
 ```json
 {
     "scripts": {
-        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+        "cs-check": "php-cs-fixer fix --dry-run",
+        "cs-fix": "php-cs-fixer fix --allow-risky=yes"
     }
 }
 ```
