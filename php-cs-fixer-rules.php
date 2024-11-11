@@ -69,11 +69,6 @@ return [
         'on_multiline' => 'ensure_fully_multiline',
         'keep_multiple_spaces_after_comma' => true,
     ],
-    'native_function_invocation' => [
-        'include' => ['@all'],
-        'scope' => 'namespaced',
-        'strict' => true,
-    ],
     'nullable_type_declaration_for_default_null_value' => true,
 
     /*
