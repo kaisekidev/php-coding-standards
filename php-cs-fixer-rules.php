@@ -133,6 +133,11 @@ return [
     'strict_comparison' => true,
 
     /*
+     * String Notation
+     */
+    'single_quote' => true,
+
+    /*
      * Whitespace
      */
     'array_indentation' => true,
