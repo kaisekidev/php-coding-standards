@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Kaiseki\CodingStandard\PhpCsFixer;
 
-use PhpCsFixer\ConfigInterface;
+use PhpCsFixer\ParallelAwareConfigInterface;
 use PhpCsFixer\Finder;
 use RuntimeException;
 
@@ -12,7 +12,7 @@ use function getcwd;
 
 final class Config
 {
-    public static function get(Finder|null $finder = null, array $rules = []): ConfigInterface
+    public static function get(Finder|null $finder = null, array $rules = []): ParallelAwareConfigInterface
     {
         $finder ??= self::createFinder();
         return (new \PhpCsFixer\Config())
