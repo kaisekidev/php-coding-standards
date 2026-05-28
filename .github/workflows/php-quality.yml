@@ -16,7 +16,7 @@ on:
         description: 'JSON array of PHP versions to run against'
         required: false
         type: string
-        default: '["8.4"]'
+        default: '["8.2","8.3","8.4"]'
       composer-options:
         description: 'Extra flags passed to composer install'
         required: false

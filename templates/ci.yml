@@ -22,4 +22,4 @@ jobs:
   quality:
     uses: kaisekidev/php-coding-standards/.github/workflows/php-quality.yml@v1
     with:
-      php-versions: '["8.4"]'   # add "8.3" during the transition, e.g. '["8.3","8.4"]'
+      php-versions: '["8.2","8.3","8.4"]'   # matches the reusable workflow default; safe to omit
