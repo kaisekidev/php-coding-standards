@@ -1,0 +1,25 @@
+# Thin CI caller — copy to `.github/workflows/ci.yml` in each kaiseki/* package.
+#
+# This is the ONLY workflow file each package needs. It delegates to the shared
+# reusable workflow in kaisekidev/php-coding-standards, so all CI logic is
+# maintained in one place.
+#
+# The `@v1` ref is a moving major tag maintained on the php-coding-standards
+# repo (tracks 1.x of the reusable workflow). Pin to an exact tag (e.g. @1.0.0)
+# if you prefer fully reproducible runs.
+
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    uses: kaisekidev/php-coding-standards/.github/workflows/php-quality.yml@v1
+    with:
+      php-versions: '["8.4"]'   # add "8.3" during the transition, e.g. '["8.3","8.4"]'

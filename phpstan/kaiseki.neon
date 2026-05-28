@@ -1,0 +1,23 @@
+# Shared PHPStan configuration for all kaiseki/* packages.
+#
+# Consuming packages include this file and add only their own `paths`:
+#
+#   includes:
+#       - vendor/kaiseki/php-coding-standard/phpstan/kaiseki.neon
+#   parameters:
+#       paths:
+#           - src
+#           - tests
+#
+# NOTE: `paths` must NOT live here — relative paths in a neon file resolve
+# against the file's own directory (i.e. vendor/...), not the consuming
+# package root. Keep paths in each package's root phpstan.neon.
+#
+# The rule extensions (phpstan-strict-rules, phpstan-phpunit, phpstan-wordpress,
+# phpstan-safe-rule, phpstan-psr-container) are auto-registered via
+# phpstan/extension-installer, so they are not listed under `includes` here.
+
+parameters:
+    level: max
+    treatPhpDocTypesAsCertain: false
+    reportUnmatchedIgnoredErrors: true

@@ -23,8 +23,8 @@
         }
     ],
     "require": {
-        "php": "^8.1",
-        "friendsofphp/php-cs-fixer": "^3.32"
+        "php": "^8.4",
+        "friendsofphp/php-cs-fixer": "^3.87"
     },
     "autoload": {
         "psr-4": {
