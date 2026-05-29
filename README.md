@@ -1,10 +1,10 @@
 # Kaiseki PHP Coding Standard
 
 Shared coding-standard tooling for all `kaiseki/*` packages: a PHP-CS-Fixer config, a shared
-PHPStan config, a reusable GitHub Actions workflow, and copy-in templates for new packages.
+PHPStan config, and copy-in templates for new packages.
 
-The composer package is `kaiseki/php-coding-standard`; the GitHub repository (used for the
-reusable workflow ref) is `kaisekidev/php-coding-standards`.
+The composer package is `kaiseki/php-coding-standard`; the GitHub repository is
+`kaisekidev/php-coding-standards`. (CI lives separately — see below.)
 
 ## Installation
 
@@ -89,30 +89,27 @@ so every package is expected to define them:
 
 ## Continuous integration
 
-CI logic is maintained in one place — the reusable workflow at
-`.github/workflows/php-quality.yml`. Each package only needs a thin caller that delegates to it.
-
-Copy `templates/ci.yml` to `.github/workflows/ci.yml` in your package:
+CI logic is maintained in one place — a reusable workflow in the **`kaisekidev/.github`** repo
+(`.github/workflows/checks.yml`). Each package only needs a thin caller. Copy this to
+`.github/workflows/checks.yml` in your package:
 
 ```yaml
-name: CI
+name: Checks
 
 on:
+  pull_request:
   push:
     branches: [master]
-  pull_request:
-
-permissions:
-  contents: read
 
 jobs:
-  quality:
-    uses: kaisekidev/php-coding-standards/.github/workflows/php-quality.yml@v1
+  checks:
+    uses: kaisekidev/.github/.github/workflows/checks.yml@v1
 ```
 
-The workflow runs the matrix of supported PHP versions (default `["8.2","8.3","8.4"]`) and invokes
-`composer validate`, `check-deps`, `cs-check`, `phpstan`, and `phpunit`. The `@v1` ref is a moving
-major tag; pin to an exact tag (e.g. `@1.0.0`) for fully reproducible runs.
+The workflow runs `check-deps`, `cs-check`, `phpstan`, and `phpunit` across the supported PHP
+matrix (default `["8.2","8.3","8.4"]`) with a strict 100% coverage gate by default. Packages not
+yet at full coverage override per-package via `coverage-threshold: 0` or `run-tests: false`. The
+`@v1` ref is a moving major tag maintained on `kaisekidev/.github`.
 
 ## Templates
 
@@ -120,6 +117,5 @@ The `templates/` directory holds copy-in starting points for new `kaiseki/*` pac
 
 | Template                  | Copy to                        | Purpose                                                    |
 | ------------------------- | ------------------------------ | ---------------------------------------------------------- |
-| `templates/ci.yml`        | `.github/workflows/ci.yml`     | Thin caller for the reusable CI workflow.                  |
 | `templates/dependabot.yml`| `.github/dependabot.yml`       | Weekly dev-tooling and GitHub Actions updates.             |
 | `templates/phpunit.xml`   | `phpunit.xml`                  | PHPUnit 11 base config; adjust testsuite names/paths.      |
