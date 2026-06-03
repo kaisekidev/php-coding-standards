@@ -1,6 +1,6 @@
 {
     "name": "kaiseki/php-coding-standard",
-    "description": "Kaiseki PHP Coding Standard",
+    "description": "Shared PHP-CS-Fixer, PHPStan and CI config for Kaiseki PHP packages",
     "license": "MIT",
     "authors": [
         {
