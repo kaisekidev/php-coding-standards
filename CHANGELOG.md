@@ -8,11 +8,14 @@ All notable changes to this project will be documented in this file, in reverse 
 
 - CI moved out of this repo: the reusable GitHub Actions workflow now lives in `kaisekidev/.github`
   (`checks.yml@v1`), so each package's caller references that repo. This package keeps the
-  PHP-CS-Fixer config, the shared PHPStan config, and the dependabot/phpunit templates.
+  PHP-CS-Fixer config and the shared PHPStan config.
 
 ### Removed
 
 - `.github/workflows/php-quality.yml` and `templates/ci.yml` (relocated to `kaisekidev/.github`).
+- `templates/dependabot.yml` and `templates/phpunit.xml` (relocated to `kaiseki-scaffold-module/templates/`,
+  their canonical home as copy-in scaffold baselines). This package now ships only the PHP-CS-Fixer and
+  PHPStan coding standard.
 - The `v1` git tag — it collided with `1.0.0` on Packagist (both normalize to `1.0.0.0`); the
   moving `v1` tag now lives only on `kaisekidev/.github`.
 

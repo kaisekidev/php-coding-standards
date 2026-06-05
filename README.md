@@ -1,7 +1,7 @@
 # Kaiseki PHP Coding Standard
 
-Shared coding-standard tooling for all `kaiseki/*` packages: a PHP-CS-Fixer config, a shared
-PHPStan config, and copy-in templates for new packages.
+Shared coding-standard tooling for all `kaiseki/*` packages: a PHP-CS-Fixer config and a shared
+PHPStan config.
 
 The composer package is `kaiseki/php-coding-standard`; the GitHub repository is
 `kaisekidev/php-coding-standards`. (CI lives separately — see below.)
@@ -110,12 +110,3 @@ The workflow runs `check-deps`, `cs-check`, `phpstan`, and `phpunit` across the 
 matrix (default `["8.2","8.3","8.4"]`) with a strict 100% coverage gate by default. Packages not
 yet at full coverage override per-package via `coverage-threshold: 0` or `run-tests: false`. The
 `@v1` ref is a moving major tag maintained on `kaisekidev/.github`.
-
-## Templates
-
-The `templates/` directory holds copy-in starting points for new `kaiseki/*` packages:
-
-| Template                  | Copy to                        | Purpose                                                    |
-| ------------------------- | ------------------------------ | ---------------------------------------------------------- |
-| `templates/dependabot.yml`| `.github/dependabot.yml`       | Weekly dev-tooling and GitHub Actions updates.             |
-| `templates/phpunit.xml`   | `phpunit.xml`                  | PHPUnit 11 base config; adjust testsuite names/paths.      |
